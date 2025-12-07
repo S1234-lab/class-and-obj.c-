@@ -1,0 +1,17 @@
+// Directory structure: mypack/Student.java
+package mypack;
+
+public class Student {
+    int rollno;
+    String name;
+
+    public Student(int r, String n) {
+        rollno = r;
+        name = n;
+    }
+
+    public void display() {
+        System.out.println("Roll No: " + rollno);
+        System.out.println("Name: " + name);
+    }
+}
