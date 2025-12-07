@@ -1,0 +1,29 @@
+// File name: StringManipulation.java
+public class StringManipulation {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+
+        // Concatenation
+        String str3 = str1 + " " + str2;
+        System.out.println("Concatenated String: " + str3);
+
+        // Length
+        System.out.println("Length: " + str3.length());
+
+        // Character at specific index
+        System.out.println("Character at 3rd index: " + str3.charAt(3));
+
+        // Substring
+        System.out.println("Substring (0 to 5): " + str3.substring(0, 5));
+
+        // Conversion to uppercase and lowercase
+        System.out.println("Uppercase: " + str3.toUpperCase());
+        System.out.println("Lowercase: " + str3.toLowerCase());
+
+        // Equality check
+        String str4 = "Hello";
+        System.out.println("Equals: " + str1.equals(str4));
+        System.out.println("Equals Ignore Case: " + str1.equalsIgnoreCase("HELLO"));
+    }
+}
