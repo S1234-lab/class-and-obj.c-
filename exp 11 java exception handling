@@ -1,0 +1,34 @@
+// File name: ExceptionDemo.java
+public class ExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            int a = 10, b = 0;
+            int c = a / b; // Division by zero
+            System.out.println("Result: " + c);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero not allowed.");
+        } finally {
+            System.out.println("Finally block executed.");
+        }
+
+        // User-defined exception example
+        try {
+            checkAge(15);
+        } catch (InvalidAgeException e) {
+            System.out.println("Caught Exception: " + e.getMessage());
+        }
+    }
+
+    static void checkAge(int age) throws InvalidAgeException {
+        if (age < 18)
+            throw new InvalidAgeException("Age below 18 not allowed.");
+        else
+            System.out.println("Valid age.");
+    }
+}
+
+class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
