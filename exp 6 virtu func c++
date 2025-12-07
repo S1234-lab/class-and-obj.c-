@@ -1,0 +1,36 @@
+#include <iostream.h>
+#include <conio.h>
+
+class Base {
+public:
+    virtual void show() {
+        cout << "Base\n";
+    }
+};
+
+class Derive1 : public Base {
+public:
+    void show() {
+        cout << "Derived 1\n";
+    }
+};
+
+class Derive2 : public Base {
+public:
+    void show() {
+        cout << "Derived 2\n";
+    }
+};
+
+int main() {
+    Derive1 dv1;
+    Derive2 dv2;
+    Base* ptr;
+    clrscr();
+    ptr = &dv1;
+    ptr->show();
+    ptr = &dv2;
+    ptr->show();
+    getch();
+    return 0;
+}
