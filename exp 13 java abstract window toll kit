@@ -1,0 +1,29 @@
+// File name: AWTExample.java
+import java.awt.*;
+import java.awt.event.*;
+
+public class AWTExample extends Frame implements ActionListener {
+    TextField tf;
+
+    public AWTExample() {
+        setLayout(new FlowLayout());
+        Label label = new Label("Enter Text:");
+        tf = new TextField(20);
+        Button b = new Button("Click");
+        b.addActionListener(this);
+        add(label);
+        add(tf);
+        add(b);
+        setSize(300, 200);
+        setTitle("Simple AWT Example");
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        tf.setText("Welcome to AWT!");
+    }
+
+    public static void main(String[] args) {
+        new AWTExample();
+    }
+}
