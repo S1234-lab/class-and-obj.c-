@@ -1,0 +1,36 @@
+// File name: MultiThread.java
+class A extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("From Thread A: " + i);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+class B extends Thread {
+    public void run() {
+        for (int j = 1; j <= 5; j++) {
+            System.out.println("From Thread B: " + j);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+public class MultiThread {
+    public static void main(String[] args) {
+        A t1 = new A();
+        B t2 = new B();
+
+        t1.start();
+        t2.start();
+    }
+}
