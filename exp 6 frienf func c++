@@ -1,104 +1,35 @@
 #include <iostream.h>
 #include <conio.h>
-const int LEN = 80;
 
-class student {
+class beta;
+
+class alpha {
 private:
-    char school[LEN];
-    char degree[LEN];
+    int data;
 
 public:
-    void getedu() {
-        cout << "\n Student Class";
-        cout << " \n Enter name of school or university: ";
-        cin >> school;
-        cout << " Enter highest degree earned \n";
-        cout << " (Highschool, Bachelor's, Master's, PhD): ";
-        cin >> degree;
-    }
-
-    void putedu() {
-        cout << "\n Student Class";
-        cout << "\n School or university: " << school;
-        cout << "\n Highest degree earned: " << degree;
-    }
+    alpha() : data(3) { }
+    friend int frifunc(alpha, beta);
 };
 
-class employee {
+class beta {
 private:
-    char name[LEN];
-    unsigned long number;
+    int data;
 
 public:
-    void getdata() {
-        cout << "\n Employee Class";
-        cout << "\n Enter last name: ";
-        cin >> name;
-        cout << " Enter number: ";
-        cin >> number;
-    }
-
-    void putdata() {
-        cout << "\n Employee Class";
-        cout << "\n Name: " << name;
-        cout << "\n Number: " << number;
-    }
+    beta() : data(7) { }
+    friend int frifunc(alpha, beta);
 };
 
-class manager : private employee, private student {
-private:
-    char title[LEN];
-    double dues;
-
-public:
-    void getdata() {
-        employee::getdata();
-        cout << " Enter title: ";
-        cin >> title;
-        cout << " Enter golf club dues: ";
-        cin >> dues;
-        student::getedu();
-    }
-
-    void putdata() {
-        employee::putdata();
-        cout << "\n Title: " << title;
-        cout << "\n Golf club dues: " << dues;
-        student::putedu();
-    }
-};
-
-class scientist : private employee, private student {
-private:
-    int pubs;
-
-public:
-    void getdata() {
-        employee::getdata();
-        cout << " Enter number of pubs: ";
-        cin >> pubs;
-        student::getedu();
-    }
-
-    void putdata() {
-        employee::putdata();
-        cout << "\n Number of publications: " << pubs;
-        student::putedu();
-    }
-};
+int frifunc(alpha a, beta b) {
+    return (a.data + b.data);
+}
 
 int main() {
-    manager m1;
-    scientist s1;
+    alpha aa;
+    beta bb;
     clrscr();
-    cout << "\n\t\t\t Enter data for manager";
-    m1.getdata();
-    cout << "\n\t\t\t Enter data for scientist ";
-    s1.getdata();
-    cout << "\n\t\t\t Data on manager ";
-    m1.putdata();
-    cout << "\n\t\t\t Data on scientist ";
-    s1.putdata();
+    cout << frifunc(aa, bb) << endl;
     getch();
     return 0;
 }
